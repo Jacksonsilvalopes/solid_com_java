@@ -23,6 +23,12 @@ public class Funcionario {
 		this.dataUltimoReajuste = dataUltimoReajuste;
 	}
 	
+	public void atualizaSalario(BigDecimal salarioReajustado) {
+		this.salario = salarioReajustado;
+		this.dataUltimoReajuste = LocalDate.now();
+		
+	}
+	
 	public void reajusteSalario(BigDecimal aumento) {
 		BigDecimal percentualReajuste = aumento.divide(salario, RoundingMode.HALF_UP);
 		if(percentualReajuste.compareTo(new BigDecimal("0.4")) > 0) {
@@ -71,6 +77,8 @@ public class Funcionario {
 	public void setDataUltimoReajuste(LocalDate dataUltimoReajuste) {
 		this.dataUltimoReajuste = dataUltimoReajuste;
 	}
+
+	
 	
 	
 }
